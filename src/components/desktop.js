@@ -94,8 +94,8 @@ class Desktop extends Component {
     this.rilke_schule();
   }
 
-  createIcon(name, x, y, width, height, image) {
-    icons.push(new Icon(this.state.ctx, name, x, y, width, height, image));
+  createIcon(name, x, y, width, height, image, linkText) {
+    icons.push(new Icon(this.state.ctx, name, x, y, width, height, image, linkText));
   }
 
   githubExe() {

@@ -25,9 +25,7 @@ class Icon{
 
   action() {
     if(this.state.linkText != "folder")
-      // window.location = this.state.linkText;
-      console.log("ACTION");
-      window.location = "www.google.com";
+      window.location.href = this.state.linkText;
   }
 
   update() {
