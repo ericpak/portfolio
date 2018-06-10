@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 // components
 import Desktop from './components/desktop';
 
-// include css
-import './App.css';
+// include minified css
+import './assets/css/default.min.css';
 
 class App extends Component {
 

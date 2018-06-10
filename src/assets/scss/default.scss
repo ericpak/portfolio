@@ -1,0 +1,12 @@
+@import "footer";
+
+$footer_height: 40px;
+$vomitGreen: #008080;
+$boringGrey: #bfbfbf;
+
+body {
+  background: $boringGrey;
+}
+.Desktop{
+  background: $vomitGreen;
+}

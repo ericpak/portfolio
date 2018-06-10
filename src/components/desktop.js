@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import StartButton from "../assets/win95_start_button.gif";
+import StartButtonDown from "../assets/win95_start_button_down.gif";
+import ClockBg from "../assets/clock_bg.gif";
 
 // Colors
 var vomitGreen = "#008080";
@@ -16,7 +18,11 @@ class Desktop extends Component {
       height: 0,
       desktopCanvas: undefined,
       ctx: undefined,
-      startBar: { height: 40 }
+      startBar: { height: 40 },
+      startButton: { up: true },
+      desktopStyle: {
+        height: window.innerHeight - 40
+      }
     }
   }
 
@@ -28,19 +34,15 @@ class Desktop extends Component {
     this.defaults();
 
     window.addEventListener('resize', this.resizeWindow.bind(this));
+    this.animate();
   }
 
-  defalutBackground() {
-    this.state.ctx.fillStyle = vomitGreen;
-    this.state.ctx.fillRect(0, 0, this.state.desktopCanvas.width, this.state.desktopCanvas.height);
-  }
   defaults() {
     this.githubExe();
     this.linkedInExe();
     this.emailExe();
-    this.startBar();
-    this.clock();
     this.startButton();
+    this.clock();
   }
 
   githubExe() {
@@ -58,39 +60,56 @@ class Desktop extends Component {
     this.state.ctx.fillRect(this.state.desktopCanvas.width-300, this.state.desktopCanvas.height-100, 50, 50);
   }
 
-  startBar() {
-    this.state.ctx.fillStyle = grey;
-    this.state.ctx.fillRect(0, this.state.desktopCanvas.height-this.state.startBar.height, this.state.desktopCanvas.width, this.state.startBar.height);
-  }
 
   startButton() {
     let img = new Image();
-    img.src = StartButton;
+    img.src = this.state.startButton.up ? StartButton : StartButtonDown;
     img.onload = () => {
       img.height = img.height/2;
       img.width = img.width/2;
-      this.state.ctx.drawImage(img, 3, window.innerHeight-40);
+      this.state.ctx.drawImage(img, 3, window.innerHeight-37, 80, 35);
     }
-    this.state.ctx.fillStyle = "black";
-    this.state.ctx.font = "20px verdana";
-    this.state.ctx.fillText("Start", 15, this.state.desktopCanvas.height-13);
   }
 
   clock() {
-    this.state.ctx.fillStyle = "black";
-    this.state.ctx.font = "20px verdana";
-    this.state.ctx.fillText("Clock", this.state.desktopCanvas.width-75, this.state.desktopCanvas.height-13);
+    let img = new Image();
+    img.src = ClockBg;
+    img.onload = () => {
+      img.height = img.height/2;
+      img.width = img.width/2;
+      this.state.ctx.drawImage(img, window.innerWidth-83, window.innerHeight-37, 80, 35);
+      this.state.ctx.fillStyle = "black";
+      this.state.ctx.font = "18px arial";
+      let d = new Date();
+      let hours = d.getHours();
+      hours = hours%12;
+      if(hours < 10)
+        hours ='0'+hours;
+      let minutes = d.getMinutes();
+      if(minutes < 10)
+        minutes = '0'+minutes;
+      this.state.ctx.fillText(hours+":"+minutes, this.state.desktopCanvas.width-65, this.state.desktopCanvas.height-13);
+    }
   }
 
   resizeWindow() {
     this.state.desktopCanvas.width = window.innerWidth;
-    this.state.desktopCanvas.height = window.innerHeight-4;
-    this.defalutBackground();
+    this.state.desktopCanvas.height = window.innerHeight;
+    this.setState({ desktopStyle: { height: window.innerHeight - 40 }});
+  }
+
+  // Recursive Method
+  animate() {
+    window.requestAnimationFrame(() => {
+      this.animate();
+    });
+    // this.defaultBackground();
+    this.defaults();
   }
 
   render() {
     return (
-      <div className="Desktop">
+      <div className="Desktop" style={this.state.desktopStyle}>
         <canvas ref="desktopCanvas" id="desktopCanvas" className="desktopCanvas" />
       </div>
     );
