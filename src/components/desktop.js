@@ -45,6 +45,20 @@ class Desktop extends Component {
     this.clock();
   }
 
+  _onMouseMove(e) {
+    this.setState({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
+    console.log(this.state.x + " " + this.state.y);
+  }
+
+  _onMouseClick(e) {
+    // Clicked on Start Button
+    if(this.state.x >= 3 && this.state.x <= 83 && this.state.y >= window.innerHeight-37 && this.state.y <= window.innerHeight - 2)
+      this.setState({ startButton: { up: !this.state.startButton.up } });
+    else {
+      this.setState({ startButton: { up: true } });
+    }
+  }
+
   githubExe() {
     this.state.ctx.fillStyle = "black";
     this.state.ctx.fillRect(this.state.desktopCanvas.width-100, this.state.desktopCanvas.height-100, 50, 50);
@@ -110,7 +124,13 @@ class Desktop extends Component {
   render() {
     return (
       <div className="Desktop" style={this.state.desktopStyle}>
-        <canvas ref="desktopCanvas" id="desktopCanvas" className="desktopCanvas" />
+        <canvas
+          ref="desktopCanvas"
+          id="desktopCanvas"
+          className="desktopCanvas"
+          onMouseMove={ this._onMouseMove.bind(this) }
+          onMouseDown={ this._onMouseClick.bind(this) }
+        />
       </div>
     );
   }
