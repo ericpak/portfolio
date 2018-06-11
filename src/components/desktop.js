@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Icon from "./icon";
+import Window from "./window";
 
 // Start Bar Images
 import StartButton from "../assets/images/win95_start_button.gif";
@@ -11,6 +12,8 @@ import linkedIn_icon from "../assets/images/linkedIn_icon.png";
 import email_icon from "../assets/images/email_icon.png";
 import github_icon from "../assets/images/github_icon.png";
 import folder_icon from "../assets/images/folder_icon.png";
+import recycle_bin_icon from "../assets/images/recycle_bin_icon.png";
+import pdf_icon from "../assets/images/pdf_icon.png";
 
 var windows;
 var icons;
@@ -75,7 +78,12 @@ class Desktop extends Component {
       if(this.state.x >= icons[pos].state.x && this.state.x <= icons[pos].state.x+icons[pos].state.width){
         if(this.state.y >= icons[pos].state.y && this.state.y <= icons[pos].state.y+icons[pos].state.height){
           console.log(icons[pos].state.name + " clicked!");
-          icons[pos].action();
+          if(icons[pos].state.linkText === "folder"){
+            windows.push(new Window(this.state.ctx, icons[pos].state.name, 100, 100, 100, 100));
+            console.log("WINDOW CREATED!");
+          } else {
+            icons[pos].action();
+          }
         }
       }
     }
@@ -92,24 +100,31 @@ class Desktop extends Component {
     this.deckard_cain();
     this.snap();
     this.rilke_schule();
+    this.recycle_bin();
+    this.resume();
   }
 
   createIcon(name, x, y, width, height, image, linkText) {
     icons.push(new Icon(this.state.ctx, name, x, y, width, height, image, linkText));
   }
 
+  // Contact Icons
   githubExe() {
     this.createIcon("GitHub", this.state.desktopCanvas.width-100, this.state.desktopCanvas.height-110, 50, 50, github_icon, "https://github.com/ericpak");
   }
-
   linkedInExe() {
     this.createIcon("LinkedIn", this.state.desktopCanvas.width-200, this.state.desktopCanvas.height-110, 50, 50, linkedIn_icon, "https://www.linkedin.com/in/eric-pak/");
   }
-
   emailExe() {
     this.createIcon("Email", this.state.desktopCanvas.width-300, this.state.desktopCanvas.height-110, 50, 50, email_icon, "mailto:pak.eric@gmail.com");
   }
 
+  // Resume link
+  resume() {
+    this.createIcon("Resume.pdf", this.state.desktopCanvas.width-100, 50, 50, 50, pdf_icon, "/resume");
+  }
+
+  // Folders
   deckard_cain() {
     this.createIcon("Deckard Cain", 20, 50, 50, 50, folder_icon, "folder");
   }
@@ -118,6 +133,9 @@ class Desktop extends Component {
   }
   rilke_schule() {
     this.createIcon("Rilke Schule", 20, 200, 50, 50, folder_icon, "folder");
+  }
+  recycle_bin() {
+    this.createIcon("Recycle Bin", 20, 275, 50,50, recycle_bin_icon, "folder");
   }
 
   startButton() {
@@ -166,6 +184,9 @@ class Desktop extends Component {
     });
     for(var pos = 0; pos < icons.length; pos++){
       icons[pos].update();
+    }
+    for(pos = 0; pos < windows.length; pos++){
+      windows[pos].update();
     }
     this.defaults();
   }
