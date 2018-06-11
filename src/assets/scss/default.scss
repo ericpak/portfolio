@@ -5,9 +5,80 @@ $vomitGreen: #008080;
 $boringGrey: #bfbfbf;
 
 body {
-  background: $boringGrey;
+  background: "white";
   overflow: hidden;
 }
-.Desktop{
+p {
+  margin: 0;
+  text-align: center;
+  color: white;
+}
+
+.Desktop {
   background: $vomitGreen;
+}
+.StartBar {
+  position: absolute;
+  height: 40;
+  width: 100%;
+  bottom: 0;
+  background: $boringGrey;
+}
+#start_button {
+  margin: 2;
+}
+
+.icon {
+  margin: 0px 20px 20px 20px;
+}
+.boticon {
+  margin: 20px 20px 0px 20px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 50px;
+}
+
+.right {
+  float: right;
+}
+.left {
+  width: 50px;
+}
+.rightside {
+  float: right;
+  width: 300px;
+}
+
+.startMenu {
+  position: relative;
+  display: inline-block;
+}
+.startMenu-content {
+  display: none;
+  position: absolute;
+  background-color: #bfbfbf;
+  min-width: 160px;
+  bottom: 42px;
+}
+.startMenu-content a {
+  display: block;
+  text-decoration: none;
+}
+.show{
+  display: block;
+}
+
+#clockbg {
+  margin: 2;
+  position: absolute;
+  right: 0;
+}
+#clock {
+  height: 35;
+  width: 80;
+  position: absolute;
+  right: -2;
+  bottom: -5;
 }
