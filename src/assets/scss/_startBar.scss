@@ -1,0 +1,43 @@
+
+$boringGrey: #bfbfbf;
+
+.StartBar {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  bottom: 0px;
+  background: $boringGrey;
+}
+#start_button {
+  margin: 2px;
+}
+#clockbg {
+  margin: 2px;
+  position: absolute;
+  right: 0px;
+}
+#clock {
+  height: 35px;
+  width: 80px;
+  position: absolute;
+  right: -2px;
+  bottom: -5px;
+}
+.startMenu {
+  position: relative;
+  display: inline-block;
+}
+.startMenu-content {
+  display: none;
+  position: absolute;
+  background-color: #bfbfbf;
+  min-width: 160px;
+  bottom: 42px;
+}
+.startMenu-content a {
+  display: block;
+  text-decoration: none;
+}
+.show{
+  display: block;
+}

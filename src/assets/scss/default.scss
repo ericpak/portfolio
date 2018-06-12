@@ -1,12 +1,76 @@
-@import "footer";
+@import "startBar";
 
 $footer_height: 40px;
 $vomitGreen: #008080;
-$boringGrey: #bfbfbf;
 
 body {
-  background: $boringGrey;
+  background: "white";
+  overflow: hidden;
 }
-.Desktop{
+p {
+  margin: 0px;
+  text-align: center;
+  color: white;
+}
+
+.Desktop {
   background: $vomitGreen;
+}
+
+.icon {
+  margin: 0px 20px 20px 20px;
+}
+.boticon {
+  margin: 20px 20px 0px 20px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 50px;
+}
+
+.right {
+  float: right;
+}
+.left {
+  width: 50px;
+}
+.rightside {
+  float: right;
+  width: 300px;
+}
+
+////////////////////////////////////////
+
+.handle:hover {
+  cursor: grabbing;
+}
+.handle {
+  background: #041788;
+  position: absolute;
+  top: 1px;
+  width: 100%;
+  height: 22px;
+  color: white;
+  padding-top: 3px;
+  // padding-left: 3px;
+}
+
+.content {
+  top: 35px;
+  padding: 35px 10px 10px 10px;
+}
+
+.close:hover {
+  background: #aaa;
+}
+.close {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  height: 20px;
+  width: 20px;
+  padding: 0px 0px 3px 0px;
+  border: 1px outset black;
+  text-align: center;
 }
