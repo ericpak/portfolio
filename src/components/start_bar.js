@@ -1,24 +1,9 @@
 import React, { Component } from 'react';
-import Icon from "./icon";
-import Window from "./window";
 
 // Start Bar Images
 import StartButton from "../assets/images/win95_start_button.gif";
 import StartButtonDown from "../assets/images/win95_start_button_down.gif";
 import ClockBg from "../assets/images/clock_bg.gif";
-
-// Icon Images
-import linkedIn_icon from "../assets/images/linkedIn_icon.png";
-import email_icon from "../assets/images/email_icon.png";
-import github_icon from "../assets/images/github_icon.png";
-import folder_icon from "../assets/images/folder_icon.png";
-import recycle_bin_icon from "../assets/images/recycle_bin_icon.png";
-import pdf_icon from "../assets/images/pdf_icon.png";
-
-var windows;
-var icons;
-
-var mouse_down = false;
 
 class StartBar extends Component {
   constructor() {
@@ -46,7 +31,7 @@ class StartBar extends Component {
     let date = new Date();
     let hours = date.getHours();
     hours = hours%12;
-    if(hours == 0)
+    if(hours === 0)
       hours = '12';
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
@@ -84,8 +69,8 @@ class StartBar extends Component {
   render() {
     return (
       <div className="StartBar">
-        <input id="start_button" type="image" src={this.state.startButtonImg} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} height="35" width="80" />
-        <div id="startMenu" class="startMenu-content">
+        <input id="start_button" type="image" alt="Start Button" src={this.state.startButtonImg} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} height="35" width="80" />
+        <div id="startMenu" className="startMenu-content">
           <a href="#"> about </a>
           <a href="#"> contact </a>
           <a href="#"> programs </a>

@@ -1,31 +1,20 @@
-@import "footer";
+@import "startBar";
 
 $footer_height: 40px;
 $vomitGreen: #008080;
-$boringGrey: #bfbfbf;
 
 body {
   background: "white";
   overflow: hidden;
 }
 p {
-  margin: 0;
+  margin: 0px;
   text-align: center;
   color: white;
 }
 
 .Desktop {
   background: $vomitGreen;
-}
-.StartBar {
-  position: absolute;
-  height: 40;
-  width: 100%;
-  bottom: 0;
-  background: $boringGrey;
-}
-#start_button {
-  margin: 2;
 }
 
 .icon {
@@ -51,34 +40,37 @@ p {
   width: 300px;
 }
 
-.startMenu {
-  position: relative;
-  display: inline-block;
+////////////////////////////////////////
+
+.handle:hover {
+  cursor: grabbing;
 }
-.startMenu-content {
-  display: none;
+.handle {
+  background: #041788;
   position: absolute;
-  background-color: #bfbfbf;
-  min-width: 160px;
-  bottom: 42px;
-}
-.startMenu-content a {
-  display: block;
-  text-decoration: none;
-}
-.show{
-  display: block;
+  top: 1px;
+  width: 100%;
+  height: 22px;
+  color: white;
+  padding-top: 3px;
+  // padding-left: 3px;
 }
 
-#clockbg {
-  margin: 2;
-  position: absolute;
-  right: 0;
+.content {
+  top: 35px;
+  padding: 35px 10px 10px 10px;
 }
-#clock {
-  height: 35;
-  width: 80;
+
+.close:hover {
+  background: #aaa;
+}
+.close {
   position: absolute;
-  right: -2;
-  bottom: -5;
+  top: 4px;
+  right: 2px;
+  height: 20px;
+  width: 20px;
+  padding: 0px 0px 3px 0px;
+  border: 1px outset black;
+  text-align: center;
 }
