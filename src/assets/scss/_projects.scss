@@ -1,0 +1,146 @@
+
+.project_title{
+  text-align: left;
+  padding-left: 150px;
+  margin-top: 30px;
+  color: $maroon;
+  border-bottom: 1px solid white;
+}
+
+.project_info{
+  height: auto;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.project_technologies{
+  float: left;
+  background-color: $greyBlue;
+  min-width: 120px;
+  padding: 10px;
+  li{
+    text-align: center;
+    padding: 5px;
+    color: $grey;
+    margin-bottom: 5px;
+  }
+}
+
+.project_description{
+  margin-left: 145px;
+  padding-left: 5px;
+  text-align: left;
+  border-left: 1px solid white;
+}
+
+///////////////////
+// Image Gallery //
+///////////////////
+
+.project_gallery{
+  position: relative;
+  background: $darkGrey;
+  width: 100%;
+  min-height: 300px;
+}
+
+.images{
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.image_left, .image_right, .image_button {
+  cursor: pointer;
+}
+
+.leftArrow{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 25px;
+
+  font-size: 30px;
+  cursor: pointer;
+  color: $greyBlue;
+  @include transition(.4s ease);
+  &:hover{
+    opacity: 0.5;
+    background: 'grey';
+    @include transition(.4s ease);
+    color: $white;
+  }
+
+  & span{
+    position: absolute;
+    top: 45%;
+    left: 0;
+  }
+}
+
+.rightArrow{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%;
+  width: 25px;
+
+  font-size: 30px;
+  cursor: pointer;
+  color: $greyBlue;
+  @include transition(.4s ease);
+
+  &:hover{
+    opacity: 0.5;
+    background: 'grey';
+    @include transition(.4s ease);
+    color: $white;
+  }
+
+  & span{
+    position: absolute;
+    top: 45%;
+    right: 0%;
+  }
+}
+
+.image_description{
+  text-align: center;
+}
+
+.image_button{
+  height: 13px;
+  width: 13px;
+}
+
+.ProjectItem{
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.gallery_dots{
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  margin: auto;
+}
+
+.dot{
+  background-color: transparent;
+  height: 13px;
+  width: 13px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid $greyBlue;
+  margin-left: 10px;
+  cursor: pointer;
+  &:hover{
+    background-color: $cobalt;
+    border: 1px solid $cobalt;
+  }
+}
+
+.fill{
+  background-color: $greyBlue;
+}

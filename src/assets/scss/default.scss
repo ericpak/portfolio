@@ -1,4 +1,7 @@
+
+@import "config";
 @import "startBar";
+@import "projects";
 
 $footer_height: 40px;
 $vomitGreen: #008080;
@@ -53,7 +56,11 @@ p {
   height: 22px;
   color: white;
   padding-top: 3px;
-  // padding-left: 3px;
+}
+
+.react-draggable {
+  min-height: 700px;
+  min-width: 500px;
 }
 
 .content {

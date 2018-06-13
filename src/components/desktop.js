@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Rnd from 'react-rnd';
+import Projects from './projects';
 
 // Icon Images
-import linkedIn_icon from "../assets/images/linkedIn_icon.png";
-import email_icon from "../assets/images/email_icon.png";
-import github_icon from "../assets/images/github_icon.png";
-import folder_icon from "../assets/images/folder_icon.png";
-import recycle_bin_icon from "../assets/images/recycle_bin_icon.png";
-import pdf_icon from "../assets/images/pdf_icon.png";
+import linkedIn_icon from "../assets/images/buttons_icons/linkedIn_icon.png";
+import email_icon from "../assets/images/buttons_icons/email_icon.png";
+import github_icon from "../assets/images/buttons_icons/github_icon.png";
+import folder_icon from "../assets/images/buttons_icons/folder_icon.png";
+import recycle_bin_icon from "../assets/images/buttons_icons/recycle_bin_icon.png";
+import pdf_icon from "../assets/images/buttons_icons/pdf_icon.png";
 
 // resume
 import Pdf from "../assets/pdf/resume/Eric_Pak.pdf";
@@ -38,8 +39,8 @@ class Desktop extends Component {
         z: 2,
       },
       rsRnd: {
-        width: 200,
-        height: 200,
+        width: 500,
+        height: 400,
         x: 300,
         y: 300,
         z: 3,
@@ -109,7 +110,7 @@ class Desktop extends Component {
     else if(windowName === "rs")
       this.setState({ rsWindowStyle: {...this.state.rsWindowStyle, display: "none" } });
     else if(windowName === "rb")
-      this.setState({ rbWindowStyle: {...this.state.rbWindowStyle, display: "non" } });
+      this.setState({ rbWindowStyle: {...this.state.rbWindowStyle, display: "none" } });
   }
 
   changeZ(windowName) {
@@ -262,7 +263,7 @@ class Desktop extends Component {
         >
           <div className="rsHandle handle" onMouseDown={this.changeZ.bind(this, "rs")}> Rilke Schule</div>
           <button className="close" onClick={this.closeWindow.bind(this, "rs")}>x</button>
-          <div className="content" onMouseDown={this.changeZ.bind(this, "rs")}>Rilke Schule: Permission Impossible</div>
+          <Projects />
         </Rnd>
 
         <Rnd

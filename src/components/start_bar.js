@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 // Start Bar Images
-import StartButton from "../assets/images/win95_start_button.gif";
-import StartButtonDown from "../assets/images/win95_start_button_down.gif";
-import ClockBg from "../assets/images/clock_bg.gif";
+import StartButton from "../assets/images/buttons_icons/win95_start_button.gif";
+import StartButtonDown from "../assets/images/buttons_icons/win95_start_button_down.gif";
+import ClockBg from "../assets/images/buttons_icons/clock_bg.gif";
+import ProgramsButton from "../assets/images/buttons_icons/programs_start_button.png";
+import ContactButton from "../assets/images/buttons_icons/contact_start_button.png";
+import AboutButton from "../assets/images/buttons_icons/about_start_button.png";
+import StartMenuLogo from "../assets/images/buttons_icons/start_menu_logo.png";
 
 class StartBar extends Component {
   constructor() {
@@ -71,9 +75,10 @@ class StartBar extends Component {
       <div className="StartBar">
         <input id="start_button" type="image" alt="Start Button" src={this.state.startButtonImg} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} height="35" width="80" />
         <div id="startMenu" className="startMenu-content">
-          <a href="#"> about </a>
-          <a href="#"> contact </a>
-          <a href="#"> programs </a>
+          <img className="startMenuLogo" src={StartMenuLogo} />
+          <a href="#"><input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" /></a>
+          <a href="#"><input id="contact_button" type="image" alt="contact Button" src={ContactButton} height="50" width="200" /></a>
+          <a href="#"><input id="about_button" type="image" alt="about Button" src={AboutButton} height="50" width="200" /></a>
         </div>
         <img id="clockbg" src= {ClockBg} height="35" width="80" />
         <span id="clock"> {this.state.hours}:{this.state.minutes}:{this.state.seconds} </span>

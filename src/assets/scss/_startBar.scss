@@ -31,13 +31,19 @@ $boringGrey: #bfbfbf;
   display: none;
   position: absolute;
   background-color: #bfbfbf;
-  min-width: 160px;
+  width: 225px;
   bottom: 42px;
+  border: 1px outset black;
 }
 .startMenu-content a {
   display: block;
   text-decoration: none;
+  float: right;
 }
-.show{
+.show {
   display: block;
+}
+.startMenuLogo {
+  position: absolute;
+  bottom: 0px;
 }
