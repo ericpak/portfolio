@@ -48,7 +48,7 @@ class Projects extends Component {
     this.setState({
       projects: [
         {
-          title: 'Rilke Schule Field Trip Permission Slip',
+          title: 'Permission Impossible',
           technologies: ['HTML', 'ASP.NET MVC', 'SQL', 'C#', 'Bootstrap'],
           description: 'Rilke Schule is a German school of arts and science charter school. The presented problem was managing student permission slips to be more convenient for all parties. The purposed solution was to make a web app where parents could sign off on their child(ren). The online solution removes the student as the middle man, which removes the unreliable delivery of the permission slip to and from the parent. It also reduces the use of paper.\n To develop our web app we decided to use ASP.NET MVC because the school district uses ASP.NET.',
           images: [
@@ -86,7 +86,7 @@ class Projects extends Component {
               image: manageStudent,
               imageAlt: 'Manage Student Page',
               imageTitle: 'manageStudent',
-              description: 'The users manage student page. Here you can view the students assigned to your account. You can also delete a student or add a new student of you know the correct credentials for the student.',
+              description: 'The users \'manage student\' page. Here you can view and edit the students assigned to your account.',
             },
             {
               image: slip,

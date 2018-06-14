@@ -41,7 +41,15 @@
   position: relative;
   background: $darkGrey;
   width: 100%;
-  min-height: 300px;
+  height: 50%;
+}
+
+.project_description {
+  color: "black";
+}
+
+.project_description p {
+  color: "black";
 }
 
 .images{

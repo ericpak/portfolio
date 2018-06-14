@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Rnd from 'react-rnd';
-import Projects from './projects';
+import DcProject from './dcProject';
+import SnapProject from './snapProject';
+import RSProject from './rsProject';
 
 // Icon Images
 import linkedIn_icon from "../assets/images/buttons_icons/linkedIn_icon.png";
@@ -217,7 +219,7 @@ class Desktop extends Component {
         >
           <div className="dcHandle handle" onMouseDown={this.changeZ.bind(this, "dc")}> Deckard Cain</div>
           <button className="close" onClick={this.closeWindow.bind(this, "dc")}>x</button>
-          <div className="content" onMouseDown={this.changeZ.bind(this, "dc")}>Deckard Cain: A Diablo 3 Discord chatbot</div>
+          <DcProject />
         </Rnd>
 
         <Rnd
@@ -240,7 +242,7 @@ class Desktop extends Component {
         >
           <div className="snapHandle handle" onMouseDown={this.changeZ.bind(this, "snap")}> SNAP</div>
           <button className="close" onClick={this.closeWindow.bind(this, "snap")}>x</button>
-          <div className="content" onMouseDown={this.changeZ.bind(this, "snap")}>Semantic Network Analysis Pipeline</div>
+          <SnapProject />
         </Rnd>
 
         <Rnd
@@ -263,7 +265,7 @@ class Desktop extends Component {
         >
           <div className="rsHandle handle" onMouseDown={this.changeZ.bind(this, "rs")}> Rilke Schule</div>
           <button className="close" onClick={this.closeWindow.bind(this, "rs")}>x</button>
-          <Projects />
+          <RSProject />
         </Rnd>
 
         <Rnd
