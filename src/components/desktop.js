@@ -10,6 +10,7 @@ import email_icon from "../assets/images/buttons_icons/email_icon.png";
 import github_icon from "../assets/images/buttons_icons/github_icon.png";
 import folder_icon from "../assets/images/buttons_icons/folder_icon.png";
 import recycle_bin_icon from "../assets/images/buttons_icons/recycle_bin_icon.png";
+import resize from "../assets/images/buttons_icons/resize.png";
 import pdf_icon from "../assets/images/buttons_icons/pdf_icon.png";
 
 // resume
@@ -19,39 +20,35 @@ class Desktop extends Component {
   constructor() {
     super();
     this.state = {
-      width: 200,
-      height: 200,
-      x: 200,
-      y: 200,
       desktopStyle: {
         height: window.innerHeight - 42
       },
       dcRnd: {
         width: 200,
         height: 200,
-        x: 200,
-        y: 200,
+        x: 100,
+        y: 100,
         z: 1,
       },
       snapRnd: {
         width: 200,
         height: 200,
-        x: 250,
-        y: 250,
+        x: 125,
+        y: 125,
         z: 2,
       },
       rsRnd: {
         width: 500,
         height: 400,
-        x: 300,
-        y: 300,
+        x: 150,
+        y: 150,
         z: 3,
       },
       rbRnd: {
         width: 200,
         height: 200,
-        x: 350,
-        y: 350,
+        x: 175,
+        y: 175,
         z: 4,
       },
       dcWindowStyle: {
@@ -220,6 +217,7 @@ class Desktop extends Component {
           <div className="dcHandle handle" onMouseDown={this.changeZ.bind(this, "dc")}> Deckard Cain</div>
           <button className="close" onClick={this.closeWindow.bind(this, "dc")}>x</button>
           <DcProject changeZ={this.changeZ.bind(this)}/>
+          <div className="resize"><img src={resize} /></div>
         </Rnd>
 
         <Rnd
@@ -243,6 +241,7 @@ class Desktop extends Component {
           <div className="snapHandle handle" onMouseDown={this.changeZ.bind(this, "snap")}> SNAP</div>
           <button className="close" onClick={this.closeWindow.bind(this, "snap")}>x</button>
           <SnapProject changeZ={this.changeZ.bind(this)}/>
+          <div className="resize"><img src={resize} /></div>
         </Rnd>
 
         <Rnd
@@ -266,6 +265,7 @@ class Desktop extends Component {
           <div className="rsHandle handle" onMouseDown={this.changeZ.bind(this, "rs")}> Rilke Schule</div>
           <button className="close" onClick={this.closeWindow.bind(this, "rs")}>x</button>
           <RSProject changeZ={this.changeZ.bind(this)}/>
+          <div className="resize"><img src={resize} /></div>
         </Rnd>
 
         <Rnd
@@ -289,6 +289,7 @@ class Desktop extends Component {
           <div className="rbHandle handle" onMouseDown={this.changeZ.bind(this, "rb")}> Recycle Bin</div>
           <button className="close" onClick={this.closeWindow.bind(this, "rb")}>x</button>
           <div className="content" onMouseDown={this.changeZ.bind(this, "rb")}>Insert Picture of James Lown</div>
+          <div className="resize"><img src={resize} /></div>
         </Rnd>
 
       </div>
