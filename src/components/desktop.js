@@ -347,7 +347,7 @@ class Desktop extends Component {
           <div className="rbHandle handle" onMouseDown={this.changeZ.bind(this, "rb")}> Recycle Bin</div>
           <button className="close" onClick={this.closeWindow.bind(this, "rb")}>x</button>
           <div className="recycleBinContent" onClick={this.changeZ.bind(this, "rb")}>
-            <a href="http://ericpak.me/"><input className="trashIcon" id="oldSite" type="image" alt="Old Site" src={oldSite_icon} height="50" width="50" /></a>
+            <a href="https://ericpak.github.io/ericpak.me/"><input className="trashIcon" id="oldSite" type="image" alt="Old Site" src={oldSite_icon} height="50" width="50" /></a>
             <p className="trashLabel">old site</p>
             <div className="resize"><img src={resize} alt="Resize" /></div>
           </div>
