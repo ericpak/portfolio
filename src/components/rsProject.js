@@ -50,7 +50,7 @@ class Projects extends Component {
         {
           title: 'Permission Impossible',
           technologies: ['HTML', 'ASP.NET', 'SQL', 'C#', 'Bootstrap'],
-          description: 'Rilke Schule is a German school of arts and science charter school. The presented problem was managing student permission slips to be more convenient for all parties. The purposed solution was to make a web app where parents could sign off on their child(ren). The online solution removes the student as the middle man, which removes the unreliable delivery of the permission slip to and from the parent. It also reduces the use of paper.\n To develop our web app we decided to use ASP.NET MVC because the school district uses ASP.NET.',
+          description: 'Rilke Schule is a German school of arts and science charter school. The presented problem was managing student permission slips to be more convenient for all parties. The purposed solution was to make a web app where parents could sign off on their children. The online solution removes the student as the middle man, which removes the unreliable delivery of the permission slip to and from the parent. It also reduces the use of paper.',
           images: [
             {
               image: rilke,
@@ -112,7 +112,7 @@ class Projects extends Component {
       );
     });
     return (
-      <span className="wrap projects">
+      <span className="wrap projects" onClick={this.changeZ.bind(this)}>
           {projectItems}
       </span>
     );

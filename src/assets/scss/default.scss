@@ -3,9 +3,6 @@
 @import "startBar";
 @import "projects";
 
-$footer_height: 40px;
-$vomitGreen: #008080;
-
 body {
   background: "white";
   overflow: hidden;
@@ -49,7 +46,7 @@ p {
   cursor: grabbing;
 }
 .handle {
-  background: #041788;
+  background: $blueblue;
   position: absolute;
   top: 1px;
   width: 100%;

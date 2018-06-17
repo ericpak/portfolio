@@ -81,7 +81,7 @@ class SnapProject extends Component {
       );
     });
     return (
-      <div className="wrap projects">
+      <div className="wrap projects" onClick={this.changeZ.bind(this)}>
           {projectItems}
       </div>
     );
