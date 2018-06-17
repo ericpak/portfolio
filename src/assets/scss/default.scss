@@ -40,7 +40,20 @@ p {
   width: 300px;
 }
 
-////////////////////////////////////////
+.trashIcon {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+.trashLabel {
+  width: 60px;
+  margin-left: 10px;
+  margin-top: 75px;
+  color: black;
+}
+
+// Window Style
 
 .handle:hover {
   cursor: grabbing;
@@ -58,6 +71,19 @@ p {
 .react-draggable {
   min-height: 700px;
   min-width: 500px;
+  display: none;
+  border: solid 1px #ddd;
+  background: #bfbfbf;
+}
+
+.recycleBin {
+  min-width: 200px;
+  min-height: 200px;
+}
+
+.recycleBinContent {
+  height: 100%;
+  width: 100%;
 }
 
 .content {

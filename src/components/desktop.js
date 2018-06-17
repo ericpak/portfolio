@@ -12,6 +12,7 @@ import folder_icon from "../assets/images/buttons_icons/folder_icon.png";
 import recycle_bin_icon from "../assets/images/buttons_icons/recycle_bin_icon.png";
 import resize from "../assets/images/buttons_icons/resize.png";
 import pdf_icon from "../assets/images/buttons_icons/pdf_icon.png";
+import oldSite_icon from "../assets/images/buttons_icons/internet_explorer.png";
 
 // resume
 import Pdf from "../assets/pdf/resume/Eric_Pak.pdf";
@@ -53,23 +54,31 @@ class Desktop extends Component {
       },
       dcWindowStyle: {
         display: 'none',
-        border: 'solid 1px #ddd',
-        background: '#bfbfbf'
+        // border: 'solid 1px #ddd',
+        // background: '#bfbfbf',
+        // minHeight: '700px',
+        // minWidth: '500px',
       },
       snapWindowStyle: {
         display: 'none',
-        border: 'solid 1px #ddd',
-        background: '#bfbfbf'
+        // border: 'solid 1px #ddd',
+        // background: '#bfbfbf',
+        // minHeight: '700px',
+        // minWidth: '500px',
       },
       rsWindowStyle: {
         display: 'none',
-        border: 'solid 1px #ddd',
-        background: '#bfbfbf'
+        // border: 'solid 1px #ddd',
+        // background: '#bfbfbf',
+        // minHeight: '700px',
+        // minWidth: '500px',
       },
       rbWindowStyle: {
         display: 'none',
-        border: 'solid 1px #ddd',
-        background: '#bfbfbf'
+        // border: 'solid 1px #ddd',
+        // background: '#bfbfbf',
+        minHeight: '100px',
+        minWidth: '100px',
       }
     }
   }
@@ -270,6 +279,7 @@ class Desktop extends Component {
 
         <Rnd
           onClick={this.changeZ.bind(this, "rb")}
+          className="recycleBin"
           style={this.state.rbWindowStyle}
           size={{ width: this.state.rbRnd.width, height: this.state.rbRnd.height }}
           z={this.state.rbRnd.z}
@@ -288,8 +298,11 @@ class Desktop extends Component {
         >
           <div className="rbHandle handle" onMouseDown={this.changeZ.bind(this, "rb")}> Recycle Bin</div>
           <button className="close" onClick={this.closeWindow.bind(this, "rb")}>x</button>
-          <div className="content" onMouseDown={this.changeZ.bind(this, "rb")}>Insert Picture of James Lown</div>
-          <div className="resize"><img src={resize} /></div>
+          <div className="recycleBinContent" onClick={this.changeZ.bind(this, "rb")}>
+            <a href="http://ericpak.me/"><input className="trashIcon" id="oldSite" type="image" alt="Old Site" src={oldSite_icon} height="50" width="50" /></a>
+            <p className="trashLabel">old site</p>
+            <div className="resize"><img src={resize} /></div>
+          </div>
         </Rnd>
 
       </div>
