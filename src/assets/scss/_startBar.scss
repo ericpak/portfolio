@@ -59,5 +59,7 @@ $boringGrey: #bfbfbf;
   padding-top: 6px;
   padding-bottom: 8px;
   background-image: url('../images/buttons_icons/window_button_down.png');
-  // background-size: cover;
+}
+.windowButton:hover {
+  cursor: pointer;
 }
