@@ -51,8 +51,13 @@ $boringGrey: #bfbfbf;
 
 .windowButton {
   float: left;
-  width: 150px;
+  width: 135px;
+  margin-top: 3px;
   font-size: 16px;
-  padding-left: 5px;
-  padding-top: 10px;
+  padding-left: 10px;
+  margin-right: 2px;
+  padding-top: 6px;
+  padding-bottom: 8px;
+  background-image: url('../images/buttons_icons/window_button_down.png');
+  // background-size: cover;
 }

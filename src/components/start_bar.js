@@ -8,6 +8,8 @@ import ProgramsButton from "../assets/images/buttons_icons/programs_start_button
 import ContactButton from "../assets/images/buttons_icons/contact_start_button.png";
 import AboutButton from "../assets/images/buttons_icons/about_start_button.png";
 import StartMenuLogo from "../assets/images/buttons_icons/start_menu_logo.png";
+import WindowButton from "../assets/images/buttons_icons/window_button.png";
+import WindowButtonDown from "../assets/images/buttons_icons/window_button_down.png";
 
 class StartBar extends Component {
   constructor() {
@@ -77,6 +79,11 @@ class StartBar extends Component {
   }
 
   click(windowName){
+    var ele = document.getElementsByClassName("windowButton");
+    for(var i = 0; i < ele.length; i++){
+      ele[i].style["background-image"] = "url("+WindowButton+")";
+    }
+    document.getElementById(windowName).style.backgroundImage = "url("+WindowButtonDown+")";
     if(windowName === "Recycle Bin")
       windowName = "rb";
     else if(windowName === "Rilke Schule")
@@ -90,7 +97,7 @@ class StartBar extends Component {
 
   render() {
 
-    var renderWindowButton = this.props.sbList.map(item => <div key={item} className="windowButton" onMouseDown={this.click.bind(this, item)}> {item} </div>);
+    var renderWindowButton = this.props.sbList.map(item => <div key={item} id={item} className="windowButton" onMouseDown={this.click.bind(this, item)}> {item} </div>);
 
     return (
       <div className="StartBar">

@@ -13,6 +13,8 @@ import recycle_bin_icon from "../assets/images/buttons_icons/recycle_bin_icon.pn
 import resize from "../assets/images/buttons_icons/resize.png";
 import pdf_icon from "../assets/images/buttons_icons/pdf_icon.png";
 import oldSite_icon from "../assets/images/buttons_icons/internet_explorer.png";
+import WindowButton from "../assets/images/buttons_icons/window_button.png";
+import WindowButtonDown from "../assets/images/buttons_icons/window_button_down.png";
 
 // resume
 import Pdf from "../assets/pdf/resume/Eric_Pak.pdf";
@@ -96,6 +98,7 @@ class Desktop extends Component {
       this.changeZ("rb");
       this.props.addToSBList("Recycle Bin");
     }
+    this.windowButtonSelector(this.converter(folderName));
   }
 
   closeWindow(windowName) {
@@ -172,7 +175,40 @@ class Desktop extends Component {
         this.setState({ rsRnd: {...this.state.rsRnd, z: rsZ-1 } });
       this.setState({ rbRnd: {...this.state.rbRnd, z: 4 } });
     }
+    this.windowButtonSelector(this.converter(windowName));
   }
+
+  converter(windowName) {
+    switch (windowName) {
+      case "dc": return "Deckard Cain";
+      case "snap": return "SNAP";
+      case "rs": return "Rilke Schule";
+      case "rb": return "Recycle Bin";
+    }
+  }
+
+  windowButtonSelector(windowName){
+    var ele = document.getElementsByClassName("windowButton");
+    for(var i = 0; i < ele.length; i++){
+      ele[i].style["background-image"] = "url("+WindowButton+")";
+    }
+    ele = document.getElementById(windowName);
+    if(ele)
+      ele.style.backgroundImage = "url("+WindowButtonDown+")";
+  }
+
+  // highestZ(windowName) {
+  //   if(windowName === "dc")
+  //     document.getElementById('Deckard Cain').style["background-image"] = WindowButtonDown;
+  //   else
+  //     document.getElementById('Deckard Cain').style["background-image"] = WindowButton;
+  //   if(windowName === "snap")
+  //     document.getElementById('SNAP').style["background-image"] = WindowButtonDown;
+  //   if(windowName === "rs")
+  //     document.getElementById('Rilke Schule').style["background-image"] = WindowButtonDown;
+  //   if(windowName === "rb")
+  //     document.getElementById('Recycle Bin').style["background-image"] = WindowButtonDown;
+  // }
 
   render() {
     return (
@@ -183,7 +219,7 @@ class Desktop extends Component {
             <p>Deckard Cain</p>
           </div>
           <div className="left icon">
-            <input className="folder" id="SNAP" type="image" alt="SNAP" src={folder_icon} height="50" width="50" onClick={this.openWindow.bind(this, "snap")}/>
+            <input className="folder" id="snap" type="image" alt="SNAP" src={folder_icon} height="50" width="50" onClick={this.openWindow.bind(this, "snap")}/>
             <p>SNAP</p>
           </div>
           <div className="left icon">

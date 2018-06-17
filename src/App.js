@@ -11,7 +11,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      startbarList: []
+      startbarList: [],
     }
   }
 
@@ -35,6 +35,7 @@ class App extends Component {
 
   changeZ(windowName) {
     this._desktop.changeZ(windowName);
+    // this._desktop.highestZ(windowName);
   }
 
   render() {
