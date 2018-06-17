@@ -54,32 +54,16 @@ class Desktop extends Component {
       },
       dcWindowStyle: {
         display: 'none',
-        // border: 'solid 1px #ddd',
-        // background: '#bfbfbf',
-        // minHeight: '700px',
-        // minWidth: '500px',
       },
       snapWindowStyle: {
         display: 'none',
-        // border: 'solid 1px #ddd',
-        // background: '#bfbfbf',
-        // minHeight: '700px',
-        // minWidth: '500px',
       },
       rsWindowStyle: {
         display: 'none',
-        // border: 'solid 1px #ddd',
-        // background: '#bfbfbf',
-        // minHeight: '700px',
-        // minWidth: '500px',
       },
       rbWindowStyle: {
         display: 'none',
-        // border: 'solid 1px #ddd',
-        // background: '#bfbfbf',
-        minHeight: '100px',
-        minWidth: '100px',
-      }
+      },
     }
   }
 
@@ -91,34 +75,62 @@ class Desktop extends Component {
     this.setState({ desktopStyle: { height: window.innerHeight - 42 }});
   }
 
-  openWindow(folderName){
+  openWindow(folderName) {
     if(folderName === "dc"){
       this.setState({ dcWindowStyle: {...this.state.dcWindowStyle, display: 'flex'} });
       this.changeZ("dc");
+      this.props.addToSBList("Deckard Cain");
     }
     else if(folderName === "snap"){
       this.setState({ snapWindowStyle: {...this.state.snapWindowStyle, display: 'flex'} });
       this.changeZ("snap");
+      this.props.addToSBList("SNAP");
     }
     else if(folderName === "rs"){
       this.setState({ rsWindowStyle: {...this.state.rsWindowStyle, display: 'flex'} });
       this.changeZ("rs");
+      this.props.addToSBList("Rilke Schule");
     }
     else if(folderName === "rb"){
       this.setState({ rbWindowStyle: {...this.state.rbWindowStyle, display: 'flex'} });
       this.changeZ("rb");
+      this.props.addToSBList("Recycle Bin");
     }
   }
 
   closeWindow(windowName) {
-    if(windowName === "dc")
+    if(windowName === "dc"){
       this.setState({ dcWindowStyle: {...this.state.dcWindowStyle, display: "none" } });
-    else if(windowName === "snap")
+      this.props.removeFromSBList("Deckard Cain");
+    }
+    else if(windowName === "snap"){
       this.setState({ snapWindowStyle: {...this.state.snapWindowStyle, display: "none" } });
-    else if(windowName === "rs")
+      this.props.removeFromSBList("SNAP");
+    }
+    else if(windowName === "rs"){
       this.setState({ rsWindowStyle: {...this.state.rsWindowStyle, display: "none" } });
-    else if(windowName === "rb")
+      this.props.removeFromSBList("Rilke Schule");
+    }
+    else if(windowName === "rb"){
       this.setState({ rbWindowStyle: {...this.state.rbWindowStyle, display: "none" } });
+      this.props.removeFromSBList("Recycle Bin");
+    }
+  }
+
+  addToSBList(windowName) {
+    var array = this.state.startbarList;
+    var index = array.indexOf(windowName);
+    if(index == -1){
+      array.push(windowName);
+    }
+  }
+
+  removeFromSBList(windowName) {
+    var array = this.state.startbarList;
+    var index = array.indexOf(windowName);
+    if(index > -1){
+      array.splice(index, 1);
+    }
   }
 
   changeZ(windowName) {

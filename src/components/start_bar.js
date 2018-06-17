@@ -16,6 +16,7 @@ class StartBar extends Component {
       hours: 10,
       minutes: 10,
       seconds: 10,
+      amPm: "am",
       startButtonImg: StartButton,
     }
   }
@@ -34,6 +35,11 @@ class StartBar extends Component {
   clock() {
     let date = new Date();
     let hours = date.getHours();
+    if(hours < 12)
+      this.setState({amPm: "am"});
+    else {
+      this.setState({amPm: "pm"});
+    }
     hours = hours%12;
     if(hours === 0)
       hours = '12';
@@ -80,8 +86,8 @@ class StartBar extends Component {
           <a href="#"><input id="contact_button" type="image" alt="contact Button" src={ContactButton} height="50" width="200" /></a>
           <a href="#"><input id="about_button" type="image" alt="about Button" src={AboutButton} height="50" width="200" /></a>
         </div>
-        <img id="clockbg" src= {ClockBg} height="35" width="80" />
-        <span id="clock"> {this.state.hours}:{this.state.minutes}:{this.state.seconds} </span>
+        <img id="clockbg" src= {ClockBg} height="35" width="90" />
+        <span id="clock"> {this.state.hours}:{this.state.minutes} {this.state.amPm} </span>
       </div>
     );
   }
