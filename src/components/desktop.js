@@ -219,7 +219,7 @@ class Desktop extends Component {
         >
           <div className="dcHandle handle" onMouseDown={this.changeZ.bind(this, "dc")}> Deckard Cain</div>
           <button className="close" onClick={this.closeWindow.bind(this, "dc")}>x</button>
-          <DcProject />
+          <DcProject changeZ={this.changeZ.bind(this)}/>
         </Rnd>
 
         <Rnd
@@ -242,7 +242,7 @@ class Desktop extends Component {
         >
           <div className="snapHandle handle" onMouseDown={this.changeZ.bind(this, "snap")}> SNAP</div>
           <button className="close" onClick={this.closeWindow.bind(this, "snap")}>x</button>
-          <SnapProject />
+          <SnapProject changeZ={this.changeZ.bind(this)}/>
         </Rnd>
 
         <Rnd
@@ -265,7 +265,7 @@ class Desktop extends Component {
         >
           <div className="rsHandle handle" onMouseDown={this.changeZ.bind(this, "rs")}> Rilke Schule</div>
           <button className="close" onClick={this.closeWindow.bind(this, "rs")}>x</button>
-          <RSProject />
+          <RSProject changeZ={this.changeZ.bind(this)}/>
         </Rnd>
 
         <Rnd

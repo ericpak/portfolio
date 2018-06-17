@@ -69,18 +69,18 @@ class ProjectItem extends Component {
     dotClass = ("dot dot_"+this.props.project.title);
 
     return (
-      <div className={this.getClassName()}>
-        <div className="project_info">
+      <div className={this.getClassName()} onMouseDown={this.props.changeZ}>
+        <div className="project_info" onMouseDown={this.props.changeZ}>
           <h2 className="project_title">{this.props.project.title}</h2><ul className="project_technologies">{this.props.project.technologies.map(this.renderTechnology.bind(this))}</ul>
           <p className="project_description">{this.props.project.description}</p>
         </div>
-        <div className="project_gallery">
-          <div className="leftArrow" onClick={this.minusDivs.bind(this)}><span className="arrow">&#10094;</span></div>
+        <div onMouseDown={this.props.changeZ}>{this.props.project.images.map(this.renderImageDescription.bind(this))}</div>
+        <div className="project_gallery" onMouseDown={this.props.changeZ}>
+          <div className="leftArrow" onClick={this.minusDivs.bind(this)} onMouseDown={this.props.changeZ}><span className="arrow">&#10094;</span></div>
           {this.props.project.images.map(this.renderImage.bind(this))}
-          <div className="rightArrow" onClick={this.plusDivs.bind(this)}><span className="arrow">&#10095;</span></div>
-          <div className="gallery_dots">{this.props.project.images.map(this.renderDots.bind(this))}</div>
+          <div className="rightArrow" onClick={this.plusDivs.bind(this)} onMouseDown={this.props.changeZ}><span className="arrow">&#10095;</span></div>
+          <div className="gallery_dots" onMouseDown={this.props.changeZ}>{this.props.project.images.map(this.renderDots.bind(this))}</div>
         </div>
-        <div>{this.props.project.images.map(this.renderImageDescription.bind(this))}</div>
       </div>
     );
   }

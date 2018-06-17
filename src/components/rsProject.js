@@ -49,7 +49,7 @@ class Projects extends Component {
       projects: [
         {
           title: 'Permission Impossible',
-          technologies: ['HTML', 'ASP.NET MVC', 'SQL', 'C#', 'Bootstrap'],
+          technologies: ['HTML', 'ASP.NET', 'SQL', 'C#', 'Bootstrap'],
           description: 'Rilke Schule is a German school of arts and science charter school. The presented problem was managing student permission slips to be more convenient for all parties. The purposed solution was to make a web app where parents could sign off on their child(ren). The online solution removes the student as the middle man, which removes the unreliable delivery of the permission slip to and from the parent. It also reduces the use of paper.\n To develop our web app we decided to use ASP.NET MVC because the school district uses ASP.NET.',
           images: [
             {
@@ -100,17 +100,21 @@ class Projects extends Component {
     })
   }
 
+  changeZ() {
+    this.props.changeZ("rs");
+  }
+
   render() {
     let projectItems;
     projectItems = this.state.projects.map(project => {
       return (
-        <ProjectItem key={project.title} project={project} />
+        <ProjectItem key={project.title} project={project} changeZ={this.changeZ.bind(this)} />
       );
     });
     return (
-      <div className="wrap projects">
+      <span className="wrap projects">
           {projectItems}
-      </div>
+      </span>
     );
   }
 }

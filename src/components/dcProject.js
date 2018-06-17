@@ -47,11 +47,15 @@ class DcProject extends Component {
     })
   }
 
+  changeZ() {
+    this.props.changeZ("dc");
+  }
+
   render() {
     let projectItems;
     projectItems = this.state.projects.map(project => {
       return (
-        <ProjectItem key={project.title} project={project} />
+        <ProjectItem key={project.title} project={project} changeZ={this.changeZ.bind(this)} />
       );
     });
     return (
