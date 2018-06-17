@@ -76,17 +76,33 @@ class StartBar extends Component {
     }
   }
 
+  click(windowName){
+    if(windowName === "Recycle Bin")
+      windowName = "rb";
+    else if(windowName === "Rilke Schule")
+      windowName = "rs";
+    else if(windowName === "SNAP")
+      windowName = "snap";
+    else if(windowName === "Deckard Cain")
+      windowName = "dc";
+    this.props.changeZ(windowName);
+  }
+
   render() {
+
+    var renderWindowButton = this.props.sbList.map(item => <div key={item} className="windowButton" onMouseDown={this.click.bind(this, item)}> {item} </div>);
+
     return (
       <div className="StartBar">
         <input id="start_button" type="image" alt="Start Button" src={this.state.startButtonImg} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} height="35" width="80" />
         <div id="startMenu" className="startMenu-content">
-          <img className="startMenuLogo" src={StartMenuLogo} />
+          <img className="startMenuLogo" src={StartMenuLogo} alt="Start Menu Logo" />
           <a href="#"><input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" /></a>
           <a href="#"><input id="contact_button" type="image" alt="contact Button" src={ContactButton} height="50" width="200" /></a>
           <a href="#"><input id="about_button" type="image" alt="about Button" src={AboutButton} height="50" width="200" /></a>
         </div>
-        <img id="clockbg" src= {ClockBg} height="35" width="90" />
+        {renderWindowButton}
+        <img id="clockbg" src= {ClockBg} height="35" width="90" alt="Clock" />
         <span id="clock"> {this.state.hours}:{this.state.minutes} {this.state.amPm} </span>
       </div>
     );

@@ -18,7 +18,7 @@ class App extends Component {
   addToSBList(windowName) {
     var array = this.state.startbarList;
     var index = array.indexOf(windowName);
-    if(index == -1){
+    if(index === -1){
       array.push(windowName);
     }
     console.log(this.state.startbarList);
@@ -33,11 +33,15 @@ class App extends Component {
     console.log(this.state.startbarList);
   }
 
+  changeZ(windowName) {
+    this._desktop.changeZ(windowName);
+  }
+
   render() {
     return (
       <div className="App">
-        <Desktop addToSBList={this.addToSBList.bind(this)} removeFromSBList={this.removeFromSBList.bind(this)}/>
-        <StartBar sbList={this.state.startbarList}/>
+        <Desktop addToSBList={this.addToSBList.bind(this)} removeFromSBList={this.removeFromSBList.bind(this)} ref={ref => (this._desktop = ref)}/>
+        <StartBar sbList={this.state.startbarList} changeZ={this.changeZ.bind(this)}/>
       </div>
     );
   }

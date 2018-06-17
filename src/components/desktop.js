@@ -120,7 +120,7 @@ class Desktop extends Component {
   addToSBList(windowName) {
     var array = this.state.startbarList;
     var index = array.indexOf(windowName);
-    if(index == -1){
+    if(index === -1){
       array.push(windowName);
     }
   }
@@ -238,7 +238,7 @@ class Desktop extends Component {
           <div className="dcHandle handle" onMouseDown={this.changeZ.bind(this, "dc")}> Deckard Cain</div>
           <button className="close" onClick={this.closeWindow.bind(this, "dc")}>x</button>
           <DcProject changeZ={this.changeZ.bind(this)}/>
-          <div className="resize"><img src={resize} /></div>
+          <div className="resize"><img src={resize} alt="Resize" /></div>
         </Rnd>
 
         <Rnd
@@ -262,7 +262,7 @@ class Desktop extends Component {
           <div className="snapHandle handle" onMouseDown={this.changeZ.bind(this, "snap")}> SNAP</div>
           <button className="close" onClick={this.closeWindow.bind(this, "snap")}>x</button>
           <SnapProject changeZ={this.changeZ.bind(this)}/>
-          <div className="resize"><img src={resize} /></div>
+          <div className="resize"><img src={resize} alt="Resize" /></div>
         </Rnd>
 
         <Rnd
@@ -286,7 +286,7 @@ class Desktop extends Component {
           <div className="rsHandle handle" onMouseDown={this.changeZ.bind(this, "rs")}> Rilke Schule</div>
           <button className="close" onClick={this.closeWindow.bind(this, "rs")}>x</button>
           <RSProject changeZ={this.changeZ.bind(this)}/>
-          <div className="resize"><img src={resize} /></div>
+          <div className="resize"><img src={resize} alt="Resize" /></div>
         </Rnd>
 
         <Rnd
@@ -313,7 +313,7 @@ class Desktop extends Component {
           <div className="recycleBinContent" onClick={this.changeZ.bind(this, "rb")}>
             <a href="http://ericpak.me/"><input className="trashIcon" id="oldSite" type="image" alt="Old Site" src={oldSite_icon} height="50" width="50" /></a>
             <p className="trashLabel">old site</p>
-            <div className="resize"><img src={resize} /></div>
+            <div className="resize"><img src={resize} alt="Resize" /></div>
           </div>
         </Rnd>
 

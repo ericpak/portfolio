@@ -10,6 +10,7 @@ $boringGrey: #bfbfbf;
 }
 #start_button {
   margin: 2px;
+  float: left;
 }
 #clockbg {
   margin: 2px;
@@ -46,4 +47,12 @@ $boringGrey: #bfbfbf;
 .startMenuLogo {
   position: absolute;
   bottom: 0px;
+}
+
+.windowButton {
+  float: left;
+  width: 150px;
+  font-size: 16px;
+  padding-left: 5px;
+  padding-top: 10px;
 }
