@@ -8,6 +8,8 @@ import ProgramsButton from "../assets/images/buttons_icons/programs_start_button
 import ContactButton from "../assets/images/buttons_icons/contact_start_button.png";
 import AboutButton from "../assets/images/buttons_icons/about_start_button.png";
 import StartMenuLogo from "../assets/images/buttons_icons/start_menu_logo.png";
+import WindowButton from "../assets/images/buttons_icons/window_button.png";
+import WindowButtonDown from "../assets/images/buttons_icons/window_button_down.png";
 
 class StartBar extends Component {
   constructor() {
@@ -16,6 +18,7 @@ class StartBar extends Component {
       hours: 10,
       minutes: 10,
       seconds: 10,
+      amPm: "am",
       startButtonImg: StartButton,
     }
   }
@@ -34,6 +37,11 @@ class StartBar extends Component {
   clock() {
     let date = new Date();
     let hours = date.getHours();
+    if(hours < 12)
+      this.setState({amPm: "am"});
+    else {
+      this.setState({amPm: "pm"});
+    }
     hours = hours%12;
     if(hours === 0)
       hours = '12';
@@ -70,18 +78,48 @@ class StartBar extends Component {
     }
   }
 
+  click(windowName){
+    var ele = document.getElementsByClassName("windowButton");
+    for(var i = 0; i < ele.length; i++){
+      ele[i].style["background-image"] = "url("+WindowButton+")";
+    }
+    document.getElementById(windowName).style.backgroundImage = "url("+WindowButtonDown+")";
+    if(windowName === "Recycle Bin")
+      windowName = "rb";
+    else if(windowName === "Rilke Schule")
+      windowName = "rs";
+    else if(windowName === "SNAP")
+      windowName = "snap";
+    else if(windowName === "Deckard Cain")
+      windowName = "dc";
+    else if(windowName === "About")
+      windowName = "about";
+    else if(windowName === "Contact")
+      windowName = "contact";
+    this.props.changeZ(windowName);
+  }
+
+  converter(windowName) {
+    if(windowName === "contact") return "Contact";
+    if(windowName === "about") return "About";
+  }
+
   render() {
+
+    var renderWindowButton = this.props.sbList.map(item => <div key={item} id={item} className="windowButton" onMouseDown={this.click.bind(this, item)}> {item} </div>);
+
     return (
       <div className="StartBar">
         <input id="start_button" type="image" alt="Start Button" src={this.state.startButtonImg} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} height="35" width="80" />
         <div id="startMenu" className="startMenu-content">
-          <img className="startMenuLogo" src={StartMenuLogo} />
-          <a href="#"><input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" /></a>
-          <a href="#"><input id="contact_button" type="image" alt="contact Button" src={ContactButton} height="50" width="200" /></a>
-          <a href="#"><input id="about_button" type="image" alt="about Button" src={AboutButton} height="50" width="200" /></a>
+          <img className="startMenuLogo" src={StartMenuLogo} alt="Start Menu Logo" />
+          <input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" />
+          <input id="contact_button" type="image" alt="contact Button" src={ContactButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "contact")} />
+          <input id="about_button" type="image" alt="about Button" src={AboutButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "about")} />
         </div>
-        <img id="clockbg" src= {ClockBg} height="35" width="80" />
-        <span id="clock"> {this.state.hours}:{this.state.minutes}:{this.state.seconds} </span>
+        {renderWindowButton}
+        <img id="clockbg" src= {ClockBg} height="35" width="90" alt="Clock" />
+        <span id="clock"> {this.state.hours}:{this.state.minutes} {this.state.amPm} </span>
       </div>
     );
   }

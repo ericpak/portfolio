@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classNames from "classnames";
 import ProjectItem from "./projectItem";
 
 // Images for project
@@ -25,7 +24,7 @@ class SnapProject extends Component {
         {
           title: 'Semantic Network Analysis Pipeline',
           technologies: ['Python', 'Java', 'NLTK', 'Javascript', 'PHP'],
-          description: 'Semantic Network Analysis Pipeline (SNAP) is a data visualization tool. By rendering many 2D networks as a 3D network visualization, a user can view changes in a network by seeing communities of nodes growing and shrinking over periods of time. SNAP is hosted on a server that ties together four modules for a user to upload raw timestamped text documents and perform: Natural Language Processing, Undirected Graph Network Generation, Network Analysis, and 3D Network Visualization.',
+          description: 'Semantic Network Analysis Pipeline (SNAP) is a data visualization tool. By rendering many 2D networks as a 3D network visualization, a user can view changes in a network by seeing communities of nodes growing and shrinking over periods of time. SNAP is hosted on a server that ties together four modules for a user to upload perform: Natural Language Processing, Undirected Graph Network Generation, Network Analysis, and 3D Network Visualization.',
           images: [
             {
               image: snap_frontend,
@@ -81,7 +80,7 @@ class SnapProject extends Component {
       );
     });
     return (
-      <div className="wrap projects">
+      <div className="wrap projects" onClick={this.changeZ.bind(this)}>
           {projectItems}
       </div>
     );

@@ -74,13 +74,13 @@ class ProjectItem extends Component {
           <h2 className="project_title">{this.props.project.title}</h2><ul className="project_technologies">{this.props.project.technologies.map(this.renderTechnology.bind(this))}</ul>
           <p className="project_description">{this.props.project.description}</p>
         </div>
-        <div onMouseDown={this.props.changeZ}>{this.props.project.images.map(this.renderImageDescription.bind(this))}</div>
         <div className="project_gallery" onMouseDown={this.props.changeZ}>
-          <div className="leftArrow" onClick={this.minusDivs.bind(this)} onMouseDown={this.props.changeZ}><span className="arrow">&#10094;</span></div>
           {this.props.project.images.map(this.renderImage.bind(this))}
+          <div className="leftArrow" onClick={this.minusDivs.bind(this)} onMouseDown={this.props.changeZ}><span className="arrow">&#10094;</span></div>
           <div className="rightArrow" onClick={this.plusDivs.bind(this)} onMouseDown={this.props.changeZ}><span className="arrow">&#10095;</span></div>
           <div className="gallery_dots" onMouseDown={this.props.changeZ}>{this.props.project.images.map(this.renderDots.bind(this))}</div>
         </div>
+        <div onMouseDown={this.props.changeZ}>{this.props.project.images.map(this.renderImageDescription.bind(this))}</div>
       </div>
     );
   }

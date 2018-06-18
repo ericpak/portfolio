@@ -3,9 +3,6 @@
 @import "startBar";
 @import "projects";
 
-$footer_height: 40px;
-$vomitGreen: #008080;
-
 body {
   background: "white";
   overflow: hidden;
@@ -43,13 +40,26 @@ p {
   width: 300px;
 }
 
-////////////////////////////////////////
+.trashIcon {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+.trashLabel {
+  width: 60px;
+  margin-left: 10px;
+  margin-top: 75px;
+  color: black;
+}
+
+// Window Style
 
 .handle:hover {
   cursor: grabbing;
 }
 .handle {
-  background: #041788;
+  background: $blueblue;
   position: absolute;
   top: 1px;
   width: 100%;
@@ -58,14 +68,108 @@ p {
   padding-top: 3px;
 }
 
+.handleTitle {
+  padding-left: 5px;
+}
+
 .react-draggable {
   min-height: 700px;
   min-width: 500px;
+  display: none;
+  border: solid 1px #ddd;
+  background: #bfbfbf;
+}
+@media screen and (max-width: 500px){
+  .react-draggable {
+    height: 100%;
+    width: 100%;
+  }
 }
 
+.recycleBin {
+  min-width: 200px;
+  min-height: 200px;
+}
+
+.recycleBinContent{
+  height: 100%;
+  width: 100%;
+}
+.aboutContent{
+  height: 100%;
+  width: 100%;
+}
+.contactContent{
+  height: 100%;
+  width: 100%;
+}
 .content {
   top: 35px;
   padding: 35px 10px 10px 10px;
+}
+
+// About style
+
+.about {
+  min-width: 500px;
+  min-height: 600px;
+}
+.aboutText {
+  width: 60%;
+  height: calc(100% - 40px);
+  right: 0;
+  position: absolute;
+  top: 35px;
+  background: $boringGrey;
+}
+.aboutImages {
+  width: 40%;
+  height: calc(100% - 40px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 17px;
+  box-sizing: content-box;
+}
+.aboutImages img{
+  max-width: 100%;
+  padding-bottom: 10px;
+}
+.about p {
+  color: #148;
+  text-align: left;
+  padding-bottom: 10px;
+  margin-right: 5px;
+}
+
+.about p h1 {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.about p h4 {
+  padding-left: 40px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.hint {
+  font-size: 10px;
+  font-style: italic;
+  position: absolute;
+  bottom: 0px;
+}
+
+////////////////////
+
+.contact {
+  min-width: 300px;
+  min-height: 300px;
+  color: #148;
+  text-align: center;
+}
+.contact a {
+  text-decoration: none;
+  color: #dd3355;
 }
 
 .close:hover {
@@ -80,4 +184,10 @@ p {
   padding: 0px 0px 3px 0px;
   border: 1px outset black;
   text-align: center;
+}
+
+.resize {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
