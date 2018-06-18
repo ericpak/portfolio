@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       startbarList: [],
     }
+    this.addToSBList("About");
   }
 
   addToSBList(windowName) {
@@ -35,14 +36,18 @@ class App extends Component {
 
   changeZ(windowName) {
     this._desktop.changeZ(windowName);
-    // this._desktop.highestZ(windowName);
+  }
+
+  openWindow(windowName) {
+    this._desktop.openWindow(windowName);
+    console.log("APP: "+windowName);
   }
 
   render() {
     return (
       <div className="App">
         <Desktop addToSBList={this.addToSBList.bind(this)} removeFromSBList={this.removeFromSBList.bind(this)} ref={ref => (this._desktop = ref)}/>
-        <StartBar sbList={this.state.startbarList} changeZ={this.changeZ.bind(this)}/>
+        <StartBar sbList={this.state.startbarList} changeZ={this.changeZ.bind(this)} openWindow={this.openWindow.bind(this)} addToSBList={this.addToSBList.bind(this)}/>
       </div>
     );
   }

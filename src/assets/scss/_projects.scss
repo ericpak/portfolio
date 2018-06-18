@@ -41,6 +41,14 @@
   color: "black";
 }
 
+.ProjectItem {
+  height: 100%;
+}
+
+.project_info {
+  height: 275px;
+}
+
 ///////////////////
 // Image Gallery //
 ///////////////////
@@ -49,7 +57,7 @@
   position: relative;
   background: #999999;
   width: 100%;
-  height: 50%;
+  height: calc(100% - 330px);
 }
 
 .images{
