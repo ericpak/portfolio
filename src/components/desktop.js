@@ -32,46 +32,53 @@ class Desktop extends Component {
         height: window.innerHeight - 42
       },
       dcRnd: {
-        width: 200,
-        height: 200,
+        width: 700,
+        height: 700,
         x: 100,
-        y: 100,
+        y: 25,
         z: 1,
       },
       snapRnd: {
-        width: 200,
-        height: 200,
-        x: 125,
-        y: 125,
+        width: 700,
+        height: 700,
+        x: 150,
+        y: 25,
         z: 2,
       },
       rsRnd: {
-        width: 500,
-        height: 400,
-        x: 150,
-        y: 150,
+        width: 700,
+        height: 700,
+        x: 200,
+        y: 25,
         z: 3,
       },
       rbRnd: {
         width: 200,
         height: 200,
-        x: 175,
-        y: 175,
+        x: 250,
+        y: 25,
         z: 4,
       },
       aboutRnd: {
-        width: 200,
-        height: 200,
-        x: 225,
-        y: 225,
+        width: 700,
+        height: 600,
+        x: 350,
+        y: 25,
         z: 4,
       },
       contactRnd: {
         width: 200,
         height: 200,
-        x: 200,
-        y: 200,
+        x: 300,
+        y: 25,
         z: 4,
+      },
+      mspaintRnd: {
+        width: 200,
+        height: 200,
+        x: 25,
+        y: 25,
+        z: 5,
       },
       dcWindowStyle: {
         display: 'none',
@@ -89,6 +96,9 @@ class Desktop extends Component {
         display: 'flex',
       },
       contactWindowStyle: {
+        display: 'none',
+      },
+      mspaintWindowStyle: {
         display: 'none',
       },
     }
@@ -115,6 +125,8 @@ class Desktop extends Component {
       this.setState({ aboutWindowStyle: {...this.state.aboutWindowStyle, display: 'flex'} });
     else if(folderName === "contact")
       this.setState({ contactWindowStyle: {...this.state.contactWindowStyle, display: 'flex'} });
+    else if(folderName === "mspaint")
+      this.setState({ mspaintWindowStyle: {...this.state.mspaintWindowStyle, display: 'flex'} });
     this.changeZ(folderName);
     this.props.addToSBList(this.converter(folderName));
     this.windowButtonSelector(this.converter(folderName));
@@ -133,6 +145,8 @@ class Desktop extends Component {
       this.setState({ aboutWindowStyle: {...this.state.aboutWindowStyle, display: "none" } });
     else if(windowName === "contact")
       this.setState({ contactWindowStyle: {...this.state.contactWindowStyle, display: "none" } });
+    else if(windowName === "mspaint")
+      this.setState({ contactWindowStyle: {...this.state.mspaintWindowStyle, display: "none" } });
     this.props.removeFromSBList(this.converter(windowName));
   }
 
@@ -160,6 +174,7 @@ class Desktop extends Component {
       case "rb": this.setState({ rbRnd: {...this.state.rbRnd, z: zCounter } }); break;
       case "about": this.setState({ aboutRnd: {...this.state.aboutRnd, z: zCounter } }); break;
       case "contact": this.setState({ contactRnd: {...this.state.contactRnd, z: zCounter } }); break;
+      case "mspaint": this.setState({ mspaintRnd: {...this.state.mspaintRnd, z: zCounter } }); break;
       default:
     }
     zCounter++;
@@ -174,6 +189,7 @@ class Desktop extends Component {
       case "rb": return "Recycle Bin";
       case "about": return "About";
       case "contact": return "Contact";
+      case "mspaint": return "MS Paint";
       default:
     }
   }
@@ -378,6 +394,32 @@ class Desktop extends Component {
           <button className="close" onClick={this.closeWindow.bind(this, "contact")}>x</button>
           <div className="contactContent content" onClick={this.changeZ.bind(this, "contact")}>
             <Contact />
+            <div className="resize"><img src={resize} alt="Resize" /></div>
+          </div>
+        </Rnd>
+
+        <Rnd
+          onClick={this.changeZ.bind(this, "mspaint")}
+          className="mspaint"
+          style={this.state.mspaintWindowStyle}
+          size={{ width: this.state.mspaintRnd.width, height: this.state.mspaintRnd.height }}
+          z={this.state.mspaintRnd.z}
+          dragHandleClassName=".mspaintHandle"
+          position={{ x: this.state.mspaintRnd.x, y: this.state.mspaintRnd.y }}
+          onDragStop={(e, d) => { this.setState({ mspaintRnd: { ...this.state.mspaintRnd, x: d.x, y: d.y } }) }}
+          onResize={(e, direction, ref, delta, position) => {
+            this.setState({
+              mspaintRnd: {
+                ...this.state.mspaintRnd,
+                width: ref.offsetWidth,
+                height: ref.offsetHeight,
+              }
+            });
+          }}
+        >
+          <div className="mspaintHandle handle" onMouseDown={this.changeZ.bind(this, "mspaint")}><span className="handleTitle">MS Paint</span></div>
+          <button className="close" onClick={this.closeWindow.bind(this, "mspaint")}>x</button>
+          <div className="mspaintContent" onClick={this.changeZ.bind(this, "mspaint")}>
             <div className="resize"><img src={resize} alt="Resize" /></div>
           </div>
         </Rnd>

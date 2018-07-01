@@ -73,7 +73,7 @@ p {
 }
 
 .react-draggable {
-  min-height: 700px;
+  min-height: 500px;
   min-width: 500px;
   display: none;
   border: solid 1px #ddd;
@@ -152,13 +152,22 @@ p {
   margin-bottom: 10px;
 }
 
-.hint {
+.hint1 {
+  font-size: 10px;
+  font-style: italic;
+  position: absolute;
+  bottom: 15px;
+  color: #923;
+}
+
+.hint2 {
   font-size: 10px;
   font-style: italic;
   position: absolute;
   bottom: 0px;
+  left: 40px;
+  color: #923;
 }
-
 ////////////////////
 
 .contact {
@@ -190,4 +199,26 @@ p {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+
+////////////////////////////
+
+.start-subMenu-content {
+  display: none;
+  position: absolute;
+  background-color: #bfbfbf;
+  width: 200px;
+  bottom: 49px;
+  left: 225px;
+  border: 1px outset black;
+  z-index: 10000;
+}
+.programs_button:hover + .start-subMenu-content, .start-subMenu-content:hover {
+  display: block;
+}
+.start-subMenu-content input {
+  display: block;
+  text-decoration: none;
+  float: right;
 }

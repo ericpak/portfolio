@@ -113,7 +113,11 @@ class StartBar extends Component {
         <input id="start_button" type="image" alt="Start Button" src={this.state.startButtonImg} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} height="35" width="80" />
         <div id="startMenu" className="startMenu-content">
           <img className="startMenuLogo" src={StartMenuLogo} alt="Start Menu Logo" />
-          <input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" />
+          <input id="programs_button" className="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" />
+          <div id="start-subMenu" className="start-subMenu-content">
+            <input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "mspaint")} />
+            <input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "mspaint")} />
+          </div>
           <input id="contact_button" type="image" alt="contact Button" src={ContactButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "contact")} />
           <input id="about_button" type="image" alt="about Button" src={AboutButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "about")} />
         </div>
