@@ -5,6 +5,7 @@ import SnapProject from './snapProject';
 import RSProject from './rsProject';
 import Contact from './contact';
 import About from './about';
+import MSPaint from './mspaint';
 
 // Icon Images
 import linkedIn_icon from "../assets/images/buttons_icons/linkedIn_icon.png";
@@ -74,8 +75,8 @@ class Desktop extends Component {
         z: 4,
       },
       mspaintRnd: {
-        width: 200,
-        height: 200,
+        width: 500,
+        height: 500,
         x: 25,
         y: 25,
         z: 5,
@@ -146,7 +147,7 @@ class Desktop extends Component {
     else if(windowName === "contact")
       this.setState({ contactWindowStyle: {...this.state.contactWindowStyle, display: "none" } });
     else if(windowName === "mspaint")
-      this.setState({ contactWindowStyle: {...this.state.mspaintWindowStyle, display: "none" } });
+      this.setState({ mspaintWindowStyle: {...this.state.mspaintWindowStyle, display: "none" } });
     this.props.removeFromSBList(this.converter(windowName));
   }
 
@@ -415,11 +416,13 @@ class Desktop extends Component {
                 height: ref.offsetHeight,
               }
             });
+            this._paintCanvas.resize();
           }}
         >
           <div className="mspaintHandle handle" onMouseDown={this.changeZ.bind(this, "mspaint")}><span className="handleTitle">MS Paint</span></div>
           <button className="close" onClick={this.closeWindow.bind(this, "mspaint")}>x</button>
           <div className="mspaintContent" onClick={this.changeZ.bind(this, "mspaint")}>
+            <MSPaint ref={ref => (this._paintCanvas = ref)} mspaintRnd={this.state.mspaintRnd} />
             <div className="resize"><img src={resize} alt="Resize" /></div>
           </div>
         </Rnd>

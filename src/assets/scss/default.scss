@@ -181,6 +181,20 @@ p {
   color: #dd3355;
 }
 
+///////////////////
+// MS Paint
+.mspaintContent {
+  width: 100%;
+  height: 100%;
+}
+.mspaint canvas {
+  background-color: white;
+  margin: 30px 5px;
+  float: right;
+}
+
+////////////////////////
+
 .close:hover {
   background: #aaa;
 }
@@ -199,26 +213,4 @@ p {
   position: absolute;
   bottom: 0;
   right: 0;
-}
-
-
-////////////////////////////
-
-.start-subMenu-content {
-  display: none;
-  position: absolute;
-  background-color: #bfbfbf;
-  width: 200px;
-  bottom: 49px;
-  left: 225px;
-  border: 1px outset black;
-  z-index: 10000;
-}
-.programs_button:hover + .start-subMenu-content, .start-subMenu-content:hover {
-  display: block;
-}
-.start-subMenu-content input {
-  display: block;
-  text-decoration: none;
-  float: right;
 }

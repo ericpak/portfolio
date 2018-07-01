@@ -65,3 +65,22 @@ $boringGrey: #bfbfbf;
 .windowButton:hover {
   cursor: pointer;
 }
+
+.start-subMenu-content input {
+  display: block;
+  text-decoration: none;
+  float: right;
+}
+.start-subMenu-content {
+  display: none;
+  position: absolute;
+  background-color: #bfbfbf;
+  width: 200px;
+  bottom: 49px;
+  left: 225px;
+  border: 1px outset black;
+  z-index: 10000;
+}
+.programs_button:hover + .start-subMenu-content, .start-subMenu-content:hover {
+  display: block;
+}
