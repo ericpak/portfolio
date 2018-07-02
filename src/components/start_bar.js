@@ -10,6 +10,7 @@ import AboutButton from "../assets/images/buttons_icons/about_start_button.png";
 import StartMenuLogo from "../assets/images/buttons_icons/start_menu_logo.png";
 import WindowButton from "../assets/images/buttons_icons/window_button.png";
 import WindowButtonDown from "../assets/images/buttons_icons/window_button_down.png";
+import MSPaintButton from "../assets/images/buttons_icons/mspaint_button.png";
 
 class StartBar extends Component {
   constructor() {
@@ -96,6 +97,8 @@ class StartBar extends Component {
       windowName = "about";
     else if(windowName === "Contact")
       windowName = "contact";
+    else if(windowName === "MS Paint")
+      windowName = "mspaint";
     this.props.changeZ(windowName);
   }
 
@@ -115,8 +118,7 @@ class StartBar extends Component {
           <img className="startMenuLogo" src={StartMenuLogo} alt="Start Menu Logo" />
           <input id="programs_button" className="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" />
           <div id="start-subMenu" className="start-subMenu-content">
-            <input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "mspaint")} />
-            <input id="programs_button" type="image" alt="Programs Button" src={ProgramsButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "mspaint")} />
+            <input id="programs_button" type="image" alt="Programs Button" src={MSPaintButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "mspaint")} />
           </div>
           <input id="contact_button" type="image" alt="contact Button" src={ContactButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "contact")} />
           <input id="about_button" type="image" alt="about Button" src={AboutButton} height="50" width="200" onMouseDown={this.props.openWindow.bind(this, "about")} />
