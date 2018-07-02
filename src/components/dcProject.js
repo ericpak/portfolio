@@ -21,7 +21,7 @@ class DcProject extends Component {
         {
          title: 'Deckard Cain: a Discord bot',
          technologies: ['Javascript', 'Nodejs','AWS EC2', 'enmap-level'],
-         description: <p>A Discord bot for Diablo 3. It calls on the Blizzard API to get data on the ladder. It can pull information from any ladder regardless of the region, ranking, and season. This bot lives on the AWS EC2 server for 24/7 availability. The code can be found on my <a href="https://github.com/ericpak/Deckard-Cain">Github</a> Site or for more details on the bot you can click <a href="https://ericpak.github.io/Deckard-Cain/">Here</a>.</p>,
+         description: "A Discord bot for Diablo 3. It calls on the Blizzard API to get data on the ladder. It can pull information from any ladder regardless of the region, ranking, and season. This bot lives on the AWS EC2 server for 24/7 availability.",
          images: [
            {
              image: deckardCainHelp,

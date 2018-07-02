@@ -22,7 +22,6 @@ class App extends Component {
     if(index === -1){
       array.push(windowName);
     }
-    console.log(this.state.startbarList);
   }
 
   removeFromSBList(windowName) {
@@ -31,7 +30,6 @@ class App extends Component {
     if(index > -1){
       array.splice(index, 1);
     }
-    console.log(this.state.startbarList);
   }
 
   changeZ(windowName) {
@@ -40,7 +38,6 @@ class App extends Component {
 
   openWindow(windowName) {
     this._desktop.openWindow(windowName);
-    console.log("APP: "+windowName);
   }
 
   render() {
